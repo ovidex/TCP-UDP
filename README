@@ -1,0 +1,20 @@
+LIPIANU FLORIN OVIDIU 323CA
+PROTOCOALE DE COMUNICATIE 
+Tema #2 Aplicatie client-server TCP si UDP pentru
+gestionarea mesajelor
+
+Am inceput cu implementarea laboratoarelor 8 si 6, pe care le-am modificat pentru
+a indeplini cerinta.
+Prima data, initializez socketii tcp si udp.
+
+In server, verific daca am primit comanda "exit", caz in care ies si inchid si 
+clientii trimitandu-le o comanda.
+Daca sunt pe cazut tcp, conectez clientii si verific daca sunt noi, daca sunt noi
+le trimit mesajele de backup si corelez id-urile la nr. socketului.
+Daca sunt pe udp, parsez mesajele primite si le formatez in functie de tipul lor, conform cerintei.
+Odata ce am prelucrat mesajul, il trimite catre toti abonatii, sau il stochez in backup(sending);
+Pentru abonari, am folosit un mutltimap care face legatura dintre topic si abonati.
+Am folosit un map si pentru a tine evidenta clientilor activi.
+
+Am gestionat posibile erori folosind functia DIE, din scheletul de laborator.
+La final, inchidem socketii activi.
